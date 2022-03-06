@@ -48,8 +48,8 @@ while (value!= 3)
 	 	case 3:
 			cout << "Exitting!" << endl;
 			break;
-		cout << "Invalid option selected! Please try again!" << endl;
 	}
+	cout << "Invalid option selected! Please try again!" << endl;
 }
 	cin.ignore();
 	return 0;
