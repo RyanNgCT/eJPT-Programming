@@ -49,9 +49,13 @@ int main() {
     struct dirent *ent;
 
     if ((dir = opendir(pPath)) != NULL) {
+        // checking if entity initialized is empty (ref: https://www.youtube.com/watch?v=j9yL30R6npk)
         while ((ent = readdir(dir)) != NULL) {
+            // display name of each file in current working dir
             send(server, ent->d_name, sizeof(ent->d_name), 0);
+            // newline
             send(server, "\n", 1, 0);
+            // alloc memory for subsequent files (?)
             memset(ent->d_name, 0, sizeof(ent->d_name));
         }
         closedir(dir);
